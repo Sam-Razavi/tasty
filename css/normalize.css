@@ -1,0 +1,6 @@
+/* Minimal normalize/reset */
+*,*::before,*::after{box-sizing:border-box}
+html:focus-within{scroll-behavior:smooth}
+body{margin:0;line-height:1.5}
+img,svg,video,canvas{max-width:100%;height:auto}
+input,button,textarea,select{font:inherit}
