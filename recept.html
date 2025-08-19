@@ -5,53 +5,127 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Recept • Tasty</title>
   <meta name="description" content="Tasty – enkla recept och matinspiration.">
+
+  <!-- Reset och egna stilar -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-<a class="skip-link" href="#main">Hoppa till innehåll</a>
-<header>
-  <div class="container navbar">
-    <div class="brand"><span class="logo" aria-hidden="true"></span><strong>Tasty</strong></div>
-    <input type="checkbox" id="nav-toggle" aria-label="Öppna meny">
-    <label class="hamburger" for="nav-toggle" aria-controls="primary-nav" aria-expanded="false">☰ Meny</label>
-    <nav id="primary-nav" class="nav-links" aria-label="Huvudmeny">
-      <a href="index.html">Hem</a><a href="recept.html" aria-current="page">Recept</a><a href="widget.html">Matwidget</a><a href="om.html">Om</a><a href="kontakt.html">Kontakt</a>
-    </nav>
-  </div>
-</header>
-<main id="main" class="container">
 
-<article class="card">
-  <div class="pad">
-    <h1>Recept</h1>
-    <p>Exempel på recept med tabell för ingredienser (responsiv).</p>
-    <h2>Boulangère Potatoes</h2>
-    <div class="grid grid-2">
-      <div>
-        <table role="table" aria-label="Ingredienser">
-          <thead>
-            <tr><th>Ingrediens</th><th>Mängd</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Potatis</td><td>1.5 kg</td></tr>
-            <tr><td>Lök</td><td>2 st</td></tr>
-            <tr><td>Timjan</td><td>några kvistar</td></tr>
-            <tr><td>Olivolja</td><td>2 msk</td></tr>
-          </tbody>
-        </table>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Skip-länk: låter tangentbordsanvändare hoppa direkt till innehållet -->
+  <a class="skip-link" href="#main">Hoppa till innehåll</a>
+
+  <!-- Sidhuvud -->
+  <header>
+    <div class="container navbar">
+      <div class="brand">
+        <img src="images/logo.png" alt="Tasty logotyp" class="site-logo">
+        <strong>Tasty</strong>
       </div>
-      <div>
-        <p>Instruktioner: Baka i ugnen tills potatisen är mör och ytan gyllene.</p>
-      </div>
+
+      <!-- Hamburgermenyn visas på små skärmar -->
+      <button class="hamburger" aria-controls="primary-nav" aria-expanded="false" aria-label="Öppna meny">
+        ≡ Meny
+      </button>
+
+      <!-- Huvudnavigering -->
+      <nav id="primary-nav" class="nav-links" aria-label="Huvudmeny">
+        <a href="index.html">Hem</a>
+        <a href="recept.html" aria-current="page">Recept</a>
+        <a href="widget.html">Matwidget</a>
+        <a href="om.html">Om</a>
+        <a href="kontakt.html">Kontakt</a>
+      </nav>
     </div>
-  </div>
-</article>
-</main>
-<footer>
-  <div class="container">
-    <p>&copy; 2025 Tasty. Byggd för kursprojekt. <a href="om.html">Om sajten</a></p>
-  </div>
-</footer>
+  </header>
+
+  <!-- Huvudinnehåll -->
+  <main id="main" class="container">
+    <article class="card">
+      <div class="pad">
+        <h1>Recept</h1>
+
+        <!-- Ett fast recept-exempel (statisk sida). Bild vänster, innehåll höger. -->
+        <section aria-labelledby="rec1-title" class="grid grid-2">
+          <div>
+            <figure>
+              <!-- Responsiv bild med 3 storlekar -->
+              <picture>
+                <source media="(min-width:1024px)" srcset="images/potatoes-1024.jpg">
+                <source media="(min-width:640px)" srcset="images/potatoes-640.jpg">
+                <img
+                  src="images/potatoes-320.jpg"
+                  alt="Boulangère-potatis, skivad och gyllene i ugnsform"
+                  loading="lazy"
+                  decoding="async">
+              </picture>
+              <figcaption>
+                Boulangère Potatoes – tunt skivad potatis bakad med lök och timjan.
+              </figcaption>
+            </figure>
+          </div>
+
+          <div>
+            <h2 id="rec1-title">Boulangère Potatoes</h2>
+
+            <!-- Tabell med ingredienser: wrapper för horisontell scroll på små skärmar -->
+            <div class="table-wrap" role="region" aria-label="Ingredienser, Boulangère Potatoes">
+              <table>
+                <caption class="sr-only">Ingredienslista och mått</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Ingrediens</th>
+                    <th scope="col">Mängd</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Potatis</th>
+                    <td>1,5 kg</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Lök</th>
+                    <td>2 st</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Timjan</th>
+                    <td>Några kvistar</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Olivolja</th>
+                    <td>2 msk</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Grönsaksbuljong</th>
+                    <td>ca 4,25 dl</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3>Instruktioner</h3>
+            <p>
+              Värm ugnen till 200°C. Fräs lök och timjan i olja tills mjukt.
+              Varva potatis och lök i ugnsform, häll på buljong och baka 50–60 min
+              tills potatisen är mör och toppen gyllene.
+            </p>
+          </div>
+        </section>
+      </div>
+    </article>
+  </main>
+
+  <!-- Sidfot -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Tasty. Byggd för kursen Dynamiska webbapplikationer 2IS220 76046 VT2025. <a href="om.html">Om sajten</a></p>
+    </div>
+  </footer>
+
+  <!-- JS sist: snabbare sidladdning, init av hamburgermenyn -->
+  <script type="module" src="js/util.js"></script>
 </body>
 </html>

@@ -1,68 +1,133 @@
 <!doctype html>
 <html lang="sv">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kontakt • Tasty</title>
-  <meta name="description" content="Tasty – enkla recept och matinspiration.">
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-<a class="skip-link" href="#main">Hoppa till innehåll</a>
-<header>
-  <div class="container navbar">
-    <div class="brand"><span class="logo" aria-hidden="true"></span><strong>Tasty</strong></div>
-    <input type="checkbox" id="nav-toggle" aria-label="Öppna meny">
-    <label class="hamburger" for="nav-toggle" aria-controls="primary-nav" aria-expanded="false">☰ Meny</label>
-    <nav id="primary-nav" class="nav-links" aria-label="Huvudmeny">
-      <a href="index.html">Hem</a><a href="recept.html">Recept</a><a href="widget.html">Matwidget</a><a href="om.html">Om</a><a href="kontakt.html" aria-current="page">Kontakt</a>
-    </nav>
-  </div>
-</header>
-<main id="main" class="container">
 
-<section class="card">
-  <div class="pad">
-    <h1>Kontakt</h1>
-    <form action="#" method="post" class="grid">
-      <div>
-        <label for="name">Namn</label><br>
-        <input id="name" name="name" type="text" required>
-      </div>
-      <div>
-        <label for="email">E-post</label><br>
-        <input id="email" name="email" type="email" required>
-      </div>
-      <div class="grid-2">
-        <div>
-          <label for="subject">Ämne</label><br>
-          <input id="subject" name="subject" type="text" required>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kontakt • Tasty</title>
+    <meta name="description" content="Tasty – enkla recept och matinspiration.">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
+    <script type="module" src="js/util.js"></script>
+</head>
+
+<body>
+    <!-- Hjälplänk för att hoppa direkt till innehållet -->
+    <a class="skip-link" href="#main">Hoppa till innehåll</a>
+
+    <header>
+        <div class="container navbar">
+            <!-- Logotyp + varumärke -->
+            <div class="brand">
+                <img src="images/logo.png" alt="Tasty logotyp" class="site-logo">
+                <strong>Tasty</strong>
+            </div>
+
+            <!-- Hamburgermenyn för mobil -->
+            <button class="hamburger" aria-controls="primary-nav" aria-expanded="false" aria-label="Öppna meny">
+                ≡ Meny
+            </button>
+
+            <!-- Huvudnavigation -->
+            <nav id="primary-nav" class="nav-links" aria-label="Huvudmeny">
+                <a href="index.html">Hem</a>
+                <a href="recept.html">Recept</a>
+                <a href="widget.html">Matwidget</a>
+                <a href="om.html">Om</a>
+                <a href="kontakt.html" aria-current="page">Kontakt</a>
+            </nav>
         </div>
-        <div>
-          <label for="topic">Ärende</label><br>
-          <select id="topic" name="topic">
-            <option>Allmänt</option>
-            <option>Felrapport</option>
-            <option>Förslag</option>
-          </select>
+    </header>
+
+    <main id="main" class="container">
+        <section class="card">
+            <div class="pad">
+                <h1>Kontakt</h1>
+
+                <!-- Kontaktformulär -->
+                <form action="#" method="get" class="grid" novalidate>
+                    <!-- Get method för demo, annars ska det vara POST -->
+
+                    <!-- Namn -->
+                    <div>
+                        <label for="name">Namn <span aria-hidden="true">★</span>
+                            <span class="sr-only">(obligatoriskt)</span></label><br>
+                        <input id="name" name="name" type="text" required autocomplete="name"
+                            aria-describedby="name-hint">
+                        <small id="name-hint">Ange för- och efternamn.</small>
+                    </div>
+
+                    <!-- E-post -->
+                    <div>
+                        <label for="email">E-post <span aria-hidden="true">★</span>
+                            <span class="sr-only">(obligatoriskt)</span></label><br>
+                        <input id="email" name="email" type="email" required autocomplete="email"
+                            aria-describedby="email-hint">
+                        <small id="email-hint">Vi använder din e-post endast för att svara på meddelandet.</small>
+                    </div>
+
+                    <!-- Ämne + ärendetyp -->
+                    <div class="grid-2">
+                        <div>
+                            <label for="subject">Ämne <span aria-hidden="true">★</span>
+                                <span class="sr-only">(obligatoriskt)</span></label><br>
+                            <input id="subject" name="subject" type="text" required aria-describedby="subject-hint"
+                                autocomplete="off">
+                            <small id="subject-hint">Skriv kort vad ditt ärende gäller.</small>
+                        </div>
+
+                        <div>
+                            <label for="topic">Ärende</label><br>
+                            <select id="topic" name="topic" aria-describedby="topic-hint">
+                                <option>Allmänt</option>
+                                <option>Felrapport</option>
+                                <option>Förslag</option>
+                            </select>
+                            <small id="topic-hint">Hjälper oss att ge snabbare svar.</small>
+                        </div>
+                    </div>
+
+                    <!-- Meddelande -->
+                    <div>
+                        <label for="message">Meddelande <span aria-hidden="true">★</span>
+                            <span class="sr-only">(obligatoriskt)</span></label><br>
+                        <textarea id="message" name="message" rows="6" required aria-describedby="message-hint"
+                            maxlength="2000"></textarea>
+                        <small id="message-hint">Max 2000 tecken.</small>
+                    </div>
+
+                    <!-- Samtycke -->
+                    <div>
+                        <label>
+                            <input type="checkbox" id="consent" name="consent" required>
+                            Jag godkänner att mina uppgifter hanteras för att besvara mitt meddelande.
+                            <span class="sr-only">(obligatoriskt)</span>
+                        </label>
+                    </div>
+
+                    <!-- Skicka-knapp -->
+                    <div>
+                        <button class="button" type="submit">Skicka</button>
+                    </div>
+
+                    <!-- Plats för statusmeddelande (för framtida JS) -->
+                    <div class="sr-only" aria-live="polite" id="form-status"></div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <!-- Sidfot med kursinformation -->
+            <p>&copy; 2025 Tasty. Byggd för kursen Dynamiska webbapplikationer 2IS220 76046 VT2025.
+                <a href="om.html">Om sajten</a>
+            </p>
         </div>
-      </div>
-      <div>
-        <label for="message">Meddelande</label><br>
-        <textarea id="message" name="message" rows="6" required></textarea>
-      </div>
-      <div>
-        <button class="button" type="submit">Skicka</button>
-      </div>
-    </form>
-  </div>
-</section>
-</main>
-<footer>
-  <div class="container">
-    <p>&copy; 2025 Tasty. Byggd för kursprojekt. <a href="om.html">Om sajten</a></p>
-  </div>
-</footer>
+    </footer>
 </body>
+
 </html>

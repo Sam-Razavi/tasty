@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="sv">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,32 +8,58 @@
   <meta name="description" content="Tasty – enkla recept och matinspiration.">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Open+Sans:wght@400;600&display=swap"
+    rel="stylesheet">
+  <script type="module" src="js/util.js"></script>
 </head>
-<body>
-<a class="skip-link" href="#main">Hoppa till innehåll</a>
-<header>
-  <div class="container navbar">
-    <div class="brand"><span class="logo" aria-hidden="true"></span><strong>Tasty</strong></div>
-    <input type="checkbox" id="nav-toggle" aria-label="Öppna meny">
-    <label class="hamburger" for="nav-toggle" aria-controls="primary-nav" aria-expanded="false">☰ Meny</label>
-    <nav id="primary-nav" class="nav-links" aria-label="Huvudmeny">
-      <a href="index.html">Hem</a><a href="recept.html">Recept</a><a href="widget.html">Matwidget</a><a href="om.html" aria-current="page">Om</a><a href="kontakt.html">Kontakt</a>
-    </nav>
-  </div>
-</header>
-<main id="main" class="container">
 
-<section class="card">
-  <div class="pad">
-    <h1>Om Tasty</h1>
-    <p>Tasty är ett kursprojekt. Syftet är att visa upp responsiv design, tillgänglighet och API-integration.</p>
-  </div>
-</section>
-</main>
-<footer>
-  <div class="container">
-    <p>&copy; 2025 Tasty. Byggd för kursprojekt. <a href="om.html">Om sajten</a></p>
-  </div>
-</footer>
+<body>
+  <!-- Skip-link (tillgänglighet, men kan kommenteras bort om du vill) -->
+  <a class="skip-link" href="#main">Hoppa till innehåll</a>
+
+  <header>
+    <div class="container navbar">
+      <div class="brand">
+        <img src="images/logo.png" alt="Tasty logotyp" class="site-logo">
+        <strong>Tasty</strong>
+      </div>
+
+      <button class="hamburger" aria-controls="primary-nav" aria-expanded="false" aria-label="Öppna meny">
+        ≡ Meny
+      </button>
+
+      <nav id="primary-nav" class="nav-links" aria-label="Huvudmeny">
+        <a href="index.html">Hem</a>
+        <a href="recept.html">Recept</a>
+        <a href="widget.html">Matwidget</a>
+        <a href="om.html" aria-current="page">Om</a>
+        <a href="kontakt.html">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <section class="card">
+      <div class="pad">
+        <h1>Om Tasty</h1>
+        <p>
+          Tasty är ett kursprojekt. Syftet är att visa upp responsiv design,
+          tillgänglighet och API-integration.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>
+        &copy; 2025 Tasty. Byggd för kursen Dynamiska webbapplikationer
+        2IS220 76046 VT2025.
+        <a href="om.html">Om sajten</a>
+      </p>
+    </div>
+  </footer>
 </body>
+
 </html>

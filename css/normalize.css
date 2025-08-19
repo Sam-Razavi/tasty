@@ -1,6 +1,28 @@
 /* Minimal normalize/reset */
-*,*::before,*::after{box-sizing:border-box}
-html:focus-within{scroll-behavior:smooth}
-body{margin:0;line-height:1.5}
-img,svg,video,canvas{max-width:100%;height:auto}
-input,button,textarea,select{font:inherit}
+
+/* Se till att allting använder border-box för enklare layout */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Gör så att sidan scrollar mjukt om man hoppar till en sektion */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Tar bort standardmarginal på body och gör texten mer läsbar */
+body {
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Bilder, video osv. anpassar sig efter förälderelementet */
+img, svg, video, canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Se till att formulärelement använder samma typsnitt som resten av sidan */
+input, button, textarea, select {
+  font: inherit;
+}
